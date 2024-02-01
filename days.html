@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="blurred">
+  <section class="day-section" data-day-section>
+    <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Monday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Tuesday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Wednesday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Thursday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Friday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Saturday</div>
+        <div>32&deg;</div>
+      </div>
+      <div class="day-card">
+        <img src="icons/cloud.svg" class="weather-icon" />
+        <div class="day-card-day">Sunday</div>
+        <div>32&deg;</div>
+      </div>
+  </section>
+
+  <template id="day-card-template">
+    <div class="day-card">
+      <img data-icon class="weather-icon" />
+      <div class="day-card-day" data-date></div>
+      <div><span data-temp></span><span>&deg;</span></div>
+    </div>
+  </template>
+  
+  <script src="renderDays.js"></script>
+</body>
+</html>

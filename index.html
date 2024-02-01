@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <header>
+        <h1 id="cityHeader">Weather Forecast</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="changeModel('current.html')">Current</a></li>
+            <li><a href="#" onclick="changeModel('days.html')">Week</a></li>
+        </ul>
+    </nav>
+    <main>
+        <iframe id="weatherFrame" src="current.html" width="100%" height="600px" frameborder="0"></iframe>
+    </main>
+    <script>
+        function changeModel(modelUrl) {
+            document.getElementById('weatherFrame').src = modelUrl;
+        }
+    </script>   
+    <script src="main.js"></script> 
+</body>
+</html>
