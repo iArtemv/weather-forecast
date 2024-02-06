@@ -12,7 +12,8 @@ function positionSuccess(position) {
         .then(response => response.json())
         .then(data => {
             var city = getCityFromNominatimResponse(data);
-            document.getElementById('cityHeader').innerText = `Weather Forecast - ${city}`;
+            var currentDate = getCurrentDate();
+            document.getElementById('cityHeader').innerHTML = `Weather<br>${city}<br>${currentDate}`;
         })
         .catch(error => {
             throw new Error(`Error Nominatim API: ${error}`);
@@ -20,7 +21,7 @@ function positionSuccess(position) {
 }
 
 function positionError(error) {
-    console.error('Ошибка при получении координат:', error);
+    console.error('Error getting coordinates:', error);
 }
 
 function getCityFromNominatimResponse(nominatimResponse) {
@@ -29,6 +30,12 @@ function getCityFromNominatimResponse(nominatimResponse) {
     } else {
         return '';
     }
+}
+
+function getCurrentDate() {
+    var currentDate = new Date();
+    var formatter = new Intl.DateTimeFormat('en', { weekday: 'long', month: 'long', day: 'numeric' });
+    return formatter.format(currentDate);
 }
 
 getPosition();

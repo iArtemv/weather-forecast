@@ -62,14 +62,20 @@ const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: "long" })
 const dailySection = document.querySelector("[data-day-section]")
 const dayCardTemplate = document.getElementById("day-card-template")
 function renderDailyWeather(daily) {
-  dailySection.innerHTML = ""
+  dailySection.innerHTML = "";
   daily.forEach(day => {
-    const element = dayCardTemplate.content.cloneNode(true)
-    setValue("temp", day.maxTemp, { parent: element })
-    setValue("date", DAY_FORMATTER.format(day.timestamp), { parent: element })
-    element.querySelector("[data-icon]").src = getIconUrl(day.iconCode)
-    dailySection.append(element)
-  })
+    const element = dayCardTemplate.content.cloneNode(true);
+    setValue("temp", day.maxTemp, { parent: element });
+    setValue("date", formatDate(day.timestamp), { parent: element });
+    element.querySelector("[data-icon]").src = getIconUrl(day.iconCode);
+    dailySection.append(element);
+  });
+}
+
+function formatDate(timestamp) {
+  const date = new Date(timestamp);
+  const formatter = new Intl.DateTimeFormat('en', { weekday: 'long', month: 'long', day: 'numeric' });
+  return formatter.format(date);
 }
 
 function setValue(selector, value, { parent = document } = {}) {
